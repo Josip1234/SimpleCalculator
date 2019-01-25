@@ -41,5 +41,35 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        mSubstractButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                numbers=new Numbers(Double.parseDouble(mNum1.getText().toString()),Double.parseDouble(mNum2.getText().toString()));
+                operation=new Operation(numbers,0);
+                operation.setResult(operation.substraction(numbers));
+                result.setText(String.valueOf(operation.getResult()));
+            }
+        });
+        mDivButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                numbers=new Numbers(Double.parseDouble(mNum1.getText().toString()),Double.parseDouble(mNum2.getText().toString()));
+                if(numbers.getmNumberTwo()==0){
+                    numbers.setmNumberTwo(1);
+                }
+                operation=new Operation(numbers,0);
+                operation.setResult(operation.division(numbers));
+                result.setText(String.valueOf(operation.getResult()));
+            }
+        });
+        mMultButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                numbers=new Numbers(Double.parseDouble(mNum1.getText().toString()),Double.parseDouble(mNum2.getText().toString()));
+                operation=new Operation(numbers,0);
+                operation.setResult(operation.multiplication(numbers));
+                result.setText(String.valueOf(operation.getResult()));
+            }
+        });
     }
 }
